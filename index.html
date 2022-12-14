@@ -7,10 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./Develop/Assets/style.css">
 </head>
 
 <body>
-    <h1>Weather Dashboard</h1>
+    <navbar>
+        <h1 class="title is-1 has-text-centered has-text-light has-background-link">Weather Dashboard</h1>
+    </navbar>
+    <div class="container mt-4">
+        <div class="columns">
+            <column class="is-3 mr-4">
+                <h2 class="title is-3 has-text-dark">Search for a City:</h2>
+                <input class="input search-input" type="text" placeholder="Your City">
+                <button class="button is-link is-fullwidth mt-4 search-btn">Search</button>
+                <hr class="solid">
+                <!--Buttons for each city that was searched has to be here-->
+            </column>
+            <column class="is-9">
+                <div class="today-weather p-2">
+                    <h2 class="title city-name today-date">City Name</h2>
+                    <div class="temp">Temp:</div>
+                    <div class="wind">Wind:</div>
+                    <div class="humidity">Humidity</div>
+                </div>
+                <div class="forecast p-2">
+                    <h3 class="title forecast">5-Day Forecast:</h3>
+                    <div class="weather-cards">
+                        <div class="has-background-grey-dark has-text-white"></div>
+                        <div class="has-background-grey-dark has-text-white"></div>
+                        <div class="has-background-grey-dark has-text-white"></div>
+                        <div class="has-background-grey-dark has-text-white"></div>
+                        <div class="has-background-grey-dark has-text-white"></div>
+                    </div>
+                </div>
+            </column>
+        </div>
+    </div>
+    <script src="./Develop/Assets/script.js"></script>
 </body>
 
 </html>
