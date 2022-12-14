@@ -1,0 +1,11 @@
+hr.solid {
+    border-top: 3px solid #bbb;
+}
+
+/* * {
+    border: solid 1px black;
+} */
+
+.today-weather {
+    border: solid 1px black;
+}
