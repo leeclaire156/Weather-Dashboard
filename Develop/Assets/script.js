@@ -6,6 +6,7 @@ function getCity() {
         var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
         var fiveDayWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
 
+
         fetch(currentWeather)
             .then(function (response) {
                 return response.json();
@@ -19,7 +20,7 @@ function getCity() {
                 var dateDefault = Date(data.coord.dt);
                 var dateToString = new Date(dateDefault);
                 var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
-                cityName.innerText = data.name + " " + dateToDisplayed;
+                cityName.innerText = data.name + ", " + data.sys.country + " " + "(" + dateToDisplayed + ")";
                 //Icon code
                 var iconCode = data.weather[0].icon;
                 //Notes for the icon URL: @2x doubles the dimensions of the icon's image
