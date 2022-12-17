@@ -22,6 +22,7 @@ function getCity() {
                     cityArray.unshift(city);
                     cityArray.splice(5);
                     localStorage.setItem("cityHistory", JSON.stringify(cityArray));
+                    onLoad();
                 }
                 //City Name
                 var cityName = document.querySelector(".city-name");
@@ -83,7 +84,10 @@ function getCity() {
 getCity();
 
 function onLoad() {
-    if (localStorage.getItem('history')) {
-
-    }
+    var historyList = document.querySelector(".history");
+    var displayCities = JSON.parse(localStorage.getItem("cityHistory")) ?? [];
+    //.join("") gets rid of the commas from the array.map() method
+    historyList.innerHTML = displayCities.map((city) => `<button class="button is-link is-light is-fullwidth mt-4">${city.city}</button>`).join("");
 }
+
+onLoad();
