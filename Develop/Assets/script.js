@@ -55,7 +55,6 @@ function getCity() {
                 return response.json();
             })
             .then(function (data) {
-                // console.log(data);
                 var futureWeather = document.querySelector(".weather-cards");
                 //clears old weather cards
                 futureWeather.innerHTML = "";
@@ -70,7 +69,6 @@ function getCity() {
 
                     var div = document.createElement("div");
                     div.classList.add("card", "m-5", "p-3", "is-narrow");
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO(1): put them in a row!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     div.innerHTML =
                         `<h3 class="card-header-title is-size-4 is-centered">${dateToDisplayed}</h3>
                          <div class="card-content is-centered">
@@ -110,7 +108,6 @@ historyList.addEventListener('click', function (event) {
     }
 
     //Weather fetching
-    console.log(event.target.textContent);
     var city = event.target.textContent;
     var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
     var fiveDayWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
@@ -173,7 +170,6 @@ historyList.addEventListener('click', function (event) {
                 var futureWeather = document.querySelector(".weather-cards");
                 var div = document.createElement("div");
                 div.classList.add("card", "m-5", "p-3", "is-narrow");
-                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO(1): put them in a row!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 div.innerHTML =
                     `<h3 class="card-header-title is-size-4 is-centered">${dateToDisplayed}</h3>
                      <div class="card-content is-centered">
