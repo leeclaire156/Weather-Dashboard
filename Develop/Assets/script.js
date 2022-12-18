@@ -100,6 +100,12 @@ onLoad();
 
 
 historyList.addEventListener('click', function (event) {
+    //Makes sure the event only occurs when the user clicks on a button in the historyList area
+    var isButton = event.target.nodeName === 'BUTTON';
+    if (!isButton) {
+        return;
+    }
+    //Weather fetching
     console.log(event.target.textContent);
     var city = event.target.textContent;
     var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
