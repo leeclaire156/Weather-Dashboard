@@ -23,4 +23,6 @@ https://openweathermap.org/current
 
 * Clicking button provides button name: https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons
 
+* Credit for using +=8 increment to increase loop for displaying the following five days belongs to [Alvaro Gomez](https://www.youtube.com/@sick911): https://www.youtube.com/watch?v=j2fGspauwD4
+
 * adding multiple classes with classList.add() method: https://stackoverflow.com/questions/11115998/is-there-a-way-to-add-remove-several-classes-in-one-single-instruction-with-clas

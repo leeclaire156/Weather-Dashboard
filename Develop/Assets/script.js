@@ -58,16 +58,17 @@ function getCity() {
                     var fiveDates = (data.list[i].dt_txt);
                     var dateToString = new Date(fiveDates);
                     var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
-                    console.log(fiveDates);
-                    console.log(dateToDisplayed);
 
+                    var iconCode = data.list[i].weather[0].icon
+                    var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
 
                     var futureWeather = document.querySelector(".weather-cards");
                     var div = document.createElement("div");
-                    div.classList.add("day" + i, "card");
+                    div.classList.add("card");
                     div.innerHTML =
                         `<h3>${dateToDisplayed}</h3>
-                         <div class="temp[i]">${data.list[i].main.temp + " \u00B0" + "F"}</div>
+                         <img src=${iconUrl}>
+                         <div>${data.list[i].main.temp + " \u00B0" + "F"}</div>
                          <div>${data.list[i].wind.speed + " MPH"}</div>
                          <div>${data.list[i].main.humidity + "%"}</div>`
                     futureWeather.appendChild(div);
