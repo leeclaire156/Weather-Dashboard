@@ -1,5 +1,7 @@
 var searchBtn = document.querySelector(".search-btn");
 var searchInput = document.querySelector(".search-input");
+var historyList = document.querySelector(".history");
+
 function getCity() {
     (searchBtn).addEventListener("click", function () {
         var city = searchInput.value;
@@ -64,14 +66,20 @@ function getCity() {
 
                     var futureWeather = document.querySelector(".weather-cards");
                     var div = document.createElement("div");
-                    div.classList.add("card");
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO(3): add padding to card, format cards with classes, put them in a row!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    div.classList.add("card", "m-5", "p-3", "is-narrow");
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO(1): put them in a row!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     div.innerHTML =
-                        `<h3>${dateToDisplayed}</h3>
+                        `<h3 class="card-header-title is-size-4 is-centered">${dateToDisplayed}</h3>
+                         <div class="card-content is-centered">
+                         <div class="card-image has-text-centered">
+                         <figure class="image is-inline-block">
                          <img src=${iconUrl}>
-                         <div>${data.list[i].main.temp + " \u00B0" + "F"}</div>
-                         <div>${data.list[i].wind.speed + " MPH"}</div>
-                         <div>${data.list[i].main.humidity + "%"}</div>`
+                         </figure>
+                         </div>
+                         <div class="is-size-5 has-text-centered">${data.list[i].main.temp + " \u00B0" + "F"}</div>
+                         <div class="is-size-5 has-text-centered">${data.list[i].wind.speed + " MPH"}</div>
+                         <div class="is-size-5 has-text-centered">${data.list[i].main.humidity + "%"}</div>
+                         </div>`
                     futureWeather.appendChild(div);
                 }
 
@@ -81,7 +89,6 @@ function getCity() {
 
 getCity();
 
-var historyList = document.querySelector(".history");
 
 function onLoad() {
     var displayCities = JSON.parse(localStorage.getItem("cityHistory")) ?? [];
@@ -90,6 +97,7 @@ function onLoad() {
 }
 
 onLoad();
+
 
 historyList.addEventListener('click', function (event) {
     console.log(event.target.textContent);
@@ -156,13 +164,19 @@ historyList.addEventListener('click', function (event) {
                 var futureWeather = document.querySelector(".weather-cards");
                 var div = document.createElement("div");
                 div.classList.add("card");
-                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO(3): add padding to card, format cards with classes, put them in a row!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO(1): put them in a row!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 div.innerHTML =
-                    `<h3>${dateToDisplayed}</h3>
-                         <img src=${iconUrl}>
-                         <div>${data.list[i].main.temp + " \u00B0" + "F"}</div>
-                         <div>${data.list[i].wind.speed + " MPH"}</div>
-                         <div>${data.list[i].main.humidity + "%"}</div>`
+                    `<h3 class="card-header-title is-size-4 is-centered">${dateToDisplayed}</h3>
+                    <div class="card-content is-centered">
+                    <div class="card-image has-text-centered">
+                    <figure class="image is-inline-block">
+                    <img src=${iconUrl}>
+                    </figure>
+                    </div>
+                    <div class="is-size-5 has-text-centered">${data.list[i].main.temp + " \u00B0" + "F"}</div>
+                    <div class="is-size-5 has-text-centered">${data.list[i].wind.speed + " MPH"}</div>
+                    <div class="is-size-5 has-text-centered">${data.list[i].main.humidity + "%"}</div>
+                    </div>`
                 futureWeather.appendChild(div);
             }
 
