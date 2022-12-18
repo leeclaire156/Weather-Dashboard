@@ -54,20 +54,20 @@ function getCity() {
             })
             .then(function (data) {
                 console.log(data)
-                for (var i = 2; i < data.list.length; i += 8) {
-                    var fiveDates = (data.list[i].dt_txt);
-                    var dateToString = new Date(fiveDates);
-                    var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
-                    console.log(dateToDisplayed);
+                // for (var i = 2; i < data.list.length; i += 8) {
+                //     var fiveDates = (data.list[i].dt_txt);
+                //     var dateToString = new Date(fiveDates);
+                //     var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
+                //     console.log(dateToDisplayed);
 
-                    var futureWeather = document.querySelector(".weather-cards");
-                    var div = document.createElement("div");
-                    div.classList.add("day" + (i / 8 + 1));
-                    div.innerHTML =
-                        `<h3>${dateToDisplayed}</h3>
-                         <img src="${"http://openweathermap.org/img/wn/" + data.list[i].weather[0] + "@2x.png"}" alt="${data.list[i].weather[0].main}" `
-                    futureWeather.appendChild(div);
-                }
+                //     var futureWeather = document.querySelector(".weather-cards");
+                //     var div = document.createElement("div");
+                //     div.classList.add("day" + (i / 8 + 1));
+                //     div.innerHTML =
+                //         `<h3>${dateToDisplayed}</h3>
+                //          <img src="${"http://openweathermap.org/img/wn/" + data.list[i].weather[0] + "@2x.png"}" alt="${data.list[i].weather[0].main}" `
+                //     futureWeather.appendChild(div);
+                // }
 
                 //Temperature is default in Kelvin. Convert to Celsius by subtracting by 273.15 deg
                 // var temp = document.querySelector("#temperature");
@@ -83,11 +83,17 @@ function getCity() {
 
 getCity();
 
+var historyList = document.querySelector(".history");
+
 function onLoad() {
-    var historyList = document.querySelector(".history");
     var displayCities = JSON.parse(localStorage.getItem("cityHistory")) ?? [];
     //.join("") gets rid of the commas from the array.map() method
-    historyList.innerHTML = displayCities.map((city) => `<button class="button is-link is-light is-fullwidth mt-4">${city.city}</button>`).join("");
+    historyList.innerHTML = displayCities.map((city) => `<button class="button is-link is-light is-fullwidth mt-4 history-btns">${city.city}</button>`).join("");
 }
 
 onLoad();
+
+historyList.addEventListener('click', function (event) {
+    console.log(event.target.textContent);
+})
+

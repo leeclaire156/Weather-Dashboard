@@ -20,3 +20,5 @@ https://openweathermap.org/current
 
 
 * Converting date credit goes to [samnu pel](https://stackoverflow.com/users/6499984/samnu-pel):<br></br>https://stackoverflow.com/questions/46228846/how-to-format-javascript-date-to-mm-dd-yyyy
+
+* Clicking button provides button name: https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons
