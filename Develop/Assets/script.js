@@ -8,12 +8,12 @@ function getCity() {
         var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
         var fiveDayWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
         var cityArray = JSON.parse(localStorage.getItem("cityHistory")) ?? [];
+
         fetch(currentWeather)
             .then(function (response) {
                 return response.json();
             })
             .then(function (data) {
-                console.log(data);
                 //Store City into Local Storage
                 saveCity();
                 function saveCity() {
@@ -25,10 +25,10 @@ function getCity() {
                     localStorage.setItem("cityHistory", JSON.stringify(cityArray));
                     onLoad();
                 }
+
                 //City Name
                 var cityName = document.querySelector(".city-name");
-                //Displays Date
-                // console.log(data.dt);
+                //Displays Date - converts raw data.coord.dt into a MM/DD/YYYY format
                 var dateDefault = Date(data.coord.dt);
                 var dateToString = new Date(dateDefault);
                 var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
@@ -55,7 +55,11 @@ function getCity() {
                 return response.json();
             })
             .then(function (data) {
-                console.log(data);
+                // console.log(data);
+                var futureWeather = document.querySelector(".weather-cards");
+                //clears old weather cards
+                futureWeather.innerHTML = "";
+                //creates current query's future forecast
                 for (var i = 7; i < data.list.length; i += 8) {
                     var fiveDates = (data.list[i].dt_txt);
                     var dateToString = new Date(fiveDates);
@@ -64,7 +68,6 @@ function getCity() {
                     var iconCode = data.list[i].weather[0].icon
                     var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
 
-                    var futureWeather = document.querySelector(".weather-cards");
                     var div = document.createElement("div");
                     div.classList.add("card", "m-5", "p-3", "is-narrow");
                     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO(1): put them in a row!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -105,6 +108,7 @@ historyList.addEventListener('click', function (event) {
     if (!isButton) {
         return;
     }
+
     //Weather fetching
     console.log(event.target.textContent);
     var city = event.target.textContent;
@@ -116,7 +120,6 @@ historyList.addEventListener('click', function (event) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             //Store City into Local Storage
             saveCity();
             function saveCity() {
@@ -128,10 +131,9 @@ historyList.addEventListener('click', function (event) {
                 localStorage.setItem("cityHistory", JSON.stringify(cityArray));
                 onLoad();
             }
-            //City Name
+            // City Name
             var cityName = document.querySelector(".city-name");
-            //Displays Date
-            // console.log(data.dt);
+            //Displays Date - converts raw data.coord.dt into a MM/DD/YYYY format
             var dateDefault = Date(data.coord.dt);
             var dateToString = new Date(dateDefault);
             var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
@@ -158,7 +160,8 @@ historyList.addEventListener('click', function (event) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
+            var futureWeather = document.querySelector(".weather-cards");
+            futureWeather.innerHTML = "";
             for (var i = 7; i < data.list.length; i += 8) {
                 var fiveDates = (data.list[i].dt_txt);
                 var dateToString = new Date(fiveDates);
@@ -169,20 +172,20 @@ historyList.addEventListener('click', function (event) {
 
                 var futureWeather = document.querySelector(".weather-cards");
                 var div = document.createElement("div");
-                div.classList.add("card");
+                div.classList.add("card", "m-5", "p-3", "is-narrow");
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO(1): put them in a row!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 div.innerHTML =
                     `<h3 class="card-header-title is-size-4 is-centered">${dateToDisplayed}</h3>
-                    <div class="card-content is-centered">
-                    <div class="card-image has-text-centered">
-                    <figure class="image is-inline-block">
-                    <img src=${iconUrl}>
-                    </figure>
-                    </div>
-                    <div class="is-size-5 has-text-centered">${data.list[i].main.temp + " \u00B0" + "F"}</div>
-                    <div class="is-size-5 has-text-centered">${data.list[i].wind.speed + " MPH"}</div>
-                    <div class="is-size-5 has-text-centered">${data.list[i].main.humidity + "%"}</div>
-                    </div>`
+                     <div class="card-content is-centered">
+                     <div class="card-image has-text-centered">
+                     <figure class="image is-inline-block">
+                     <img src=${iconUrl}>
+                     </figure>
+                     </div>
+                     <div class="is-size-5 has-text-centered">${data.list[i].main.temp + " \u00B0" + "F"}</div>
+                     <div class="is-size-5 has-text-centered">${data.list[i].wind.speed + " MPH"}</div>
+                     <div class="is-size-5 has-text-centered">${data.list[i].main.humidity + "%"}</div>
+                     </div>`
                 futureWeather.appendChild(div);
             }
 
