@@ -6,7 +6,6 @@ function getCity() {
         var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
         var fiveDayWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=942ef25f0bc73d998fa814566b74ba7e&units=imperial"
         var cityArray = JSON.parse(localStorage.getItem("cityHistory")) ?? [];
-
         fetch(currentWeather)
             .then(function (response) {
                 return response.json();
@@ -27,6 +26,7 @@ function getCity() {
                 //City Name
                 var cityName = document.querySelector(".city-name");
                 //Displays Date
+                // console.log(data.dt);
                 var dateDefault = Date(data.coord.dt);
                 var dateToString = new Date(dateDefault);
                 var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
@@ -53,30 +53,26 @@ function getCity() {
                 return response.json();
             })
             .then(function (data) {
-                console.log(data)
-                // for (var i = 2; i < data.list.length; i += 8) {
-                //     var fiveDates = (data.list[i].dt_txt);
-                //     var dateToString = new Date(fiveDates);
-                //     var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
-                //     console.log(dateToDisplayed);
+                console.log(data);
+                for (var i = 7; i < data.list.length; i += 8) {
+                    var fiveDates = (data.list[i].dt_txt);
+                    var dateToString = new Date(fiveDates);
+                    var dateToDisplayed = (dateToString.getMonth() + 1) + '/' + dateToString.getDate() + '/' + dateToString.getFullYear();
+                    console.log(fiveDates);
+                    console.log(dateToDisplayed);
 
-                //     var futureWeather = document.querySelector(".weather-cards");
-                //     var div = document.createElement("div");
-                //     div.classList.add("day" + (i / 8 + 1));
-                //     div.innerHTML =
-                //         `<h3>${dateToDisplayed}</h3>
-                //          <img src="${"http://openweathermap.org/img/wn/" + data.list[i].weather[0] + "@2x.png"}" alt="${data.list[i].weather[0].main}" `
-                //     futureWeather.appendChild(div);
-                // }
 
-                //Temperature is default in Kelvin. Convert to Celsius by subtracting by 273.15 deg
-                // var temp = document.querySelector("#temperature");
-                // temp.innerText = "The temperature is " + data.main.temp + " K.";
-                // var kelvinTemp = data.main.temp;
-                // var celsiusTemp = Math.floor(kelvinTemp - 273.15);
-                // var farTemp = ((celsiusTemp * 9) / 5) + 32;
-                // celsius.innerText = "That is " + celsiusTemp + " °C."
-                // far.innerText = "Also known as " + farTemp + " °F."
+                    var futureWeather = document.querySelector(".weather-cards");
+                    var div = document.createElement("div");
+                    div.classList.add("day" + i, "card");
+                    div.innerHTML =
+                        `<h3>${dateToDisplayed}</h3>
+                         <div class="temp[i]">${data.list[i].main.temp + " \u00B0" + "F"}</div>
+                         <div>${data.list[i].wind.speed + " MPH"}</div>
+                         <div>${data.list[i].main.humidity + "%"}</div>`
+                    futureWeather.appendChild(div);
+                }
+
             })
     });
 }
