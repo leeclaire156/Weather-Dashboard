@@ -17,8 +17,6 @@ This project allows users to look at a five day forecast for the city of their c
 
 https://openweathermap.org/current
 
-
-
 * Converting date credit goes to [samnu pel](https://stackoverflow.com/users/6499984/samnu-pel):<br></br>https://stackoverflow.com/questions/46228846/how-to-format-javascript-date-to-mm-dd-yyyy
 
 * Clicking button provides button name: https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons
@@ -26,3 +24,5 @@ https://openweathermap.org/current
 * Credit for using +=8 increment to increase loop for displaying the following five days belongs to [Alvaro Gomez](https://www.youtube.com/@sick911): https://www.youtube.com/watch?v=j2fGspauwD4
 
 * adding multiple classes with classList.add() method: https://stackoverflow.com/questions/11115998/is-there-a-way-to-add-remove-several-classes-in-one-single-instruction-with-clas
+
+* centering an image in bulma: https://stackoverflow.com/questions/48277473/center-image-in-bulma
