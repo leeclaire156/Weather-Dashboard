@@ -41,13 +41,13 @@ function getCity() {
                 weatherIcon.setAttribute("src", iconUrl);
                 //Temp
                 var todayTemp = document.querySelector(".today-temp");
-                todayTemp.innerText = data.main.temp + " \u00B0" + "F";
+                todayTemp.innerText = "Temp: " + data.main.temp + " \u00B0" + "F";
                 //Wind Speeds
                 var todayWind = document.querySelector(".today-wind");
-                todayWind.innerText = data.wind.speed + " MPH";
+                todayWind.innerText = "Wind: " + data.wind.speed + " MPH";
                 //Humidity
                 var todayHumidity = document.querySelector(".today-humidity");
-                todayHumidity.innerText = data.main.humidity + "%";
+                todayHumidity.innerText = "Humidity: " + data.main.humidity + "%";
             })
 
         fetch(fiveDayWeather)
@@ -77,9 +77,9 @@ function getCity() {
                          <img src=${iconUrl}>
                          </figure>
                          </div>
-                         <div class="is-size-5 has-text-centered">${data.list[i].main.temp + " \u00B0" + "F"}</div>
-                         <div class="is-size-5 has-text-centered">${data.list[i].wind.speed + " MPH"}</div>
-                         <div class="is-size-5 has-text-centered">${data.list[i].main.humidity + "%"}</div>
+                         <div class="is-size-5 has-text-centered">${"Temp: " + data.list[i].main.temp + " \u00B0" + "F"}</div>
+                         <div class="is-size-5 has-text-centered">${"Wind: " + data.list[i].wind.speed + " MPH"}</div>
+                         <div class="is-size-5 has-text-centered">${"Humidity: " + data.list[i].main.humidity + "%"}</div>
                          </div>`
                     futureWeather.appendChild(div);
                 }
@@ -143,13 +143,13 @@ historyList.addEventListener('click', function (event) {
             weatherIcon.setAttribute("src", iconUrl);
             //Temp
             var todayTemp = document.querySelector(".today-temp");
-            todayTemp.innerText = data.main.temp + " \u00B0" + "F";
+            todayTemp.innerText = "Temp: " + data.main.temp + " \u00B0" + "F";
             //Wind Speeds
             var todayWind = document.querySelector(".today-wind");
-            todayWind.innerText = data.wind.speed + " MPH";
+            todayWind.innerText = "Wind: " + data.wind.speed + " MPH";
             //Humidity
             var todayHumidity = document.querySelector(".today-humidity");
-            todayHumidity.innerText = data.main.humidity + "%";
+            todayHumidity.innerText = "Humidity: " + data.main.humidity + "%";
         })
 
     fetch(fiveDayWeather)
@@ -178,9 +178,9 @@ historyList.addEventListener('click', function (event) {
                      <img src=${iconUrl}>
                      </figure>
                      </div>
-                     <div class="is-size-5 has-text-centered">${data.list[i].main.temp + " \u00B0" + "F"}</div>
-                     <div class="is-size-5 has-text-centered">${data.list[i].wind.speed + " MPH"}</div>
-                     <div class="is-size-5 has-text-centered">${data.list[i].main.humidity + "%"}</div>
+                     <div class="is-size-5 has-text-centered">${"Temp: " + data.list[i].main.temp + " \u00B0" + "F"}</div>
+                     <div class="is-size-5 has-text-centered">${"Wind: " + data.list[i].wind.speed + " MPH"}</div>
+                     <div class="is-size-5 has-text-centered">${"Humidity: " + data.list[i].main.humidity + "%"}</div>
                      </div>`
                 futureWeather.appendChild(div);
             }
