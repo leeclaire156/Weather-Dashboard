@@ -60,7 +60,7 @@ https://www.w3schools.com/js/js_json_intro.asp
 * JSON.parse/stringify supplementary lesson supplied also by [LogRocket](https://logrocket.com/):<br></br>
 https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/
 
-* Score storage and display functions credit goes to [James Q Quick's](https://www.youtube.com/@JamesQQuick) tutorials:<br></br>
+* Storage and display functions credit goes to [James Q Quick's](https://www.youtube.com/@JamesQQuick) tutorials:<br></br>
 https://www.youtube.com/watch?v=DFhmNLKwwGw&list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx&index=9
 https://www.youtube.com/watch?v=jfOv18lCMmw&list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx&index=10
 
@@ -69,7 +69,8 @@ https://developer.mozilla.org/en-US/docs/Web/Events
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text
 
 * Local storage explanation supplied by [FolksTalk](https://www.folkstalk.com/):<br></br>
-https://www.folkstalk.com/2022/09/how-push-objects-into-a-local-stotage-array-with-code-examples.html
+Note: Unfortunately the original article does not seem to exist any longer; regardless, the credit stated here shall remain in acknowledgment.
+https://www.folkstalk.com/2022/09/how-push-objects-into-a-local-stotage-array-with-code-examples
 
 * Special thanks for the nullish coalescing operator (??) operator supplementary lesson supplied by [Michael Karén](https://michael-karen.medium.com/):<br></br> 
 https://michael-karen.medium.com/how-to-save-high-scores-in-local-storage-7860baca9d68
