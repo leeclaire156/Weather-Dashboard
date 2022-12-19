@@ -14,37 +14,33 @@
     <navbar>
         <h1 class="title is-1 has-text-centered has-text-light has-background-link">Weather Dashboard</h1>
     </navbar>
-    <div class="container mt-4">
-        <div class="columns">
-            <column class="column is-3 mr-4">
-                <h2 class="title is-3 has-text-dark">Search for a City:</h2>
-                <input class="input search-input" type="text" placeholder="Your City">
-                <button class="button is-link is-fullwidth mt-4 search-btn">Search</button>
-                <hr class="solid">
-                <div class="history"></div>
-            </column>
-            <column class="column is-9">
-                <div class="today-weather">
-                    <h2 class="title forecast">Current Weather:</h2>
-                    <div class="today-card">
-                        <h3 class="title is-size-3 city-name today-date p-4">
-                        </h3>
-                        <img class="weather-icon">
-                        <div class="today-temp is-size-4 ml-4"></div>
-                        <div class="today-wind is-size-4 ml-4"></div>
-                        <div class="today-humidity is-size-4 ml-4 mb-4"></div>
-                    </div>
-                </div>
-                <div class="forecast p-2">
-                    <h3 class="title forecast">5-Day Forecast:</h3>
-                    <div class="weather-cards">
-                    </div>
-                </div>
+    <div class="main-area">
+        <div class="search-area">
+            <h2 class="title is-size-3 has-text-dark">Search for a City:</h2>
+            <input class="input search-input" type="text" placeholder="Your City">
+            <button class="button is-link is-fullwidth mt-4 search-btn">Search</button>
+            <hr class="solid">
+            <div class="history"></div>
         </div>
-        </column>
-    </div>
-    </div>
-    <script src="./Develop/Assets/script.js"></script>
+        <div class="weather-area">
+            <div class="today-weather">
+                <h2 class="title forecast">Current Weather:</h2>
+                <div class="today-card">
+                    <h3 class="title is-size-3 city-name today-date p-4">
+                    </h3>
+                    <img class="weather-icon">
+                    <div class="today-temp is-size-4 ml-4"></div>
+                    <div class="today-wind is-size-4 ml-4"></div>
+                    <div class="today-humidity is-size-4 ml-4 mb-4"></div>
+                </div>
+            </div>
+            <div class="forecast p-2">
+                <h3 class="title forecast">5-Day Forecast:</h3>
+                <div class="weather-cards">
+                </div>
+            </div>
+        </div>
+        <script src="./Develop/Assets/script.js"></script>
 </body>
 
 </html>
